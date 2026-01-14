@@ -1,0 +1,43 @@
+site_name: Dyglot Documentation
+site_url: https://dyglot-doc.canardoux.xyz
+
+repo_url: https://github.com/canardoux/dyglot
+repo_name: canardoux/dyglot
+
+theme:
+  name: material
+  language: en
+
+nav:
+  - Introduction: 
+      - Overview: index.md
+      - Vision: vision-architecture.md
+      - Glossary: glossary.md
+      - Architecture at a Glance: architecture-at-a-glance.md
+
+  - Student:
+      - Overview: student/index.md
+      - Getting Started: student/getting-started.md
+      - Practice: student/practice.md
+      - Session: student/session.md
+      - FAQ: student/faq.md
+
+  - Teacher:
+      - Overview: teacher/index.md
+      - classroom: teacher/classroom.md
+      - CardSet vs Course: teacher/cardset-vs-course.md
+      - Views: teacher/views.md
+      - Filter: teacher/filter.md
+      - Content Model: teacher/content-mode.md
+      - Publishing: teacher/publishing.md
+      - Expert Mode: teacher/expert.md
+
+  - Engine:
+      - Overview: engine/index.md
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
