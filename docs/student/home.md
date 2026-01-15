@@ -9,6 +9,21 @@ It is designed so that a student can:
 
 Everything else lives elsewhere.
 
+
+7. The Student Entry Screen (Design Principle)
+
+A successful student entry screen contains only:
+	1.	View selection (radio buttons)
+	2.	Filter selection (predefined)
+	3.	A large Practice or Browse button
+
+Nothing else.
+
+No field toggles.
+No pedagogy controls.
+No technical options.
+
+
 ---
 
 ## Design Principle
