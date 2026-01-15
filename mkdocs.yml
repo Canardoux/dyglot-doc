@@ -11,27 +11,35 @@ theme:
 nav:
   - Introduction: 
       - Overview: index.md
+      - Architecture at a Glance: architecture-at-a-glance.md
       - Vision: vision-architecture.md
       - Glossary: glossary.md
-      - Architecture at a Glance: architecture-at-a-glance.md
+      - FAQ: faq.md
 
   - Student:
       - Overview: student/index.md
       - Getting Started: student/getting-started.md
+      - First Launch & Discovery Flow: student/discovery.md
+      - Home: student/home.md
       - Practice: student/practice.md
+      - Practice Engines: student/engine.md
       - Session: student/session.md
+      - Session et Progress Model: student/progress.md
+      - Course (classroom): student/course.md
+      - Views: student/view.md
+      - Filters: student/filter.md
+      - Expert: student/expert.md
       - FAQ: student/faq.md
-
+ 
   - Teacher:
       - Overview: teacher/index.md
       - classroom: teacher/classroom.md
       - CardSet vs Course: teacher/cardset-vs-course.md
-      - Views: teacher/views.md
       - Filter: teacher/filter.md
-      - Content Model: teacher/content-mode.md
+      - Content Model: teacher/content-model.md
       - Publishing: teacher/publishing.md
-      - Expert Mode: teacher/expert.md
-
+      - Views: teacher/view.md
+ 
   - Engine:
       - Overview: engine/index.md
 

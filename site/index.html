@@ -1,0 +1,2309 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://dyglot-doc.canardoux.xyz/">
+      
+      
+      
+        <link rel="next" href="architecture-at-a-glance/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Overview - Dyglot Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dyglot-v2-introduction-conceptual-overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Dyglot Documentation" class="md-header__button md-logo" aria-label="Dyglot Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Dyglot Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/canardoux/dyglot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    canardoux/dyglot
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Dyglot Documentation" class="md-nav__button md-logo" aria-label="Dyglot Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Dyglot Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/canardoux/dyglot" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    canardoux/dyglot
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-dyglot-is-and-what-it-is-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Dyglot Is — and What It Is Not
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Three Actors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Three Actors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-system-developer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. System Developer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-teacher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Teacher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-student" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Student
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#card" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cardset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CardSet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#course-formerly-classroom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Course (formerly “Classroom”)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="View">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question-vs-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question vs Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-downloadable-and-remote-courses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local, Downloadable, and Remote Courses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-architecture-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Architecture Exists
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminology-glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminology &amp; Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="architecture-at-a-glance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture at a Glance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vision-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Student
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Student
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="student/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="student/getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="student/discovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First Launch & Discovery Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="student/home/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="student/practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="student/engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practice Engines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="student/session/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="student/progress/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session et Progress Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="student/course/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course (classroom)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="student/view/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Views
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="student/filter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="student/expert/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Expert
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="student/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teacher
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Teacher
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="teacher/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="teacher/classroom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    classroom
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="teacher/cardset-vs-course/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CardSet vs Course
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="teacher/filter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="teacher/content-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Content Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="teacher/publishing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publishing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="teacher/view/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Views
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engine
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Engine
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-dyglot-is-and-what-it-is-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Dyglot Is — and What It Is Not
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Three Actors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Three Actors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-system-developer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. System Developer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-teacher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Teacher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-student" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Student
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#card" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cardset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CardSet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#course-formerly-classroom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Course (formerly “Classroom”)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="View">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question-vs-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question vs Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-downloadable-and-remote-courses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local, Downloadable, and Remote Courses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-architecture-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Architecture Exists
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminology-glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminology &amp; Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="dyglot-v2-introduction-conceptual-overview">Dyglot v2 — Introduction &amp; Conceptual Overview<a class="headerlink" href="#dyglot-v2-introduction-conceptual-overview" title="Permanent link">&para;</a></h1>
+<h2 id="what-dyglot-is-and-what-it-is-not">What Dyglot Is — and What It Is Not<a class="headerlink" href="#what-dyglot-is-and-what-it-is-not" title="Permanent link">&para;</a></h2>
+<p>Dyglot is <strong>not</strong> a language-learning application.</p>
+<p>Dyglot is a <strong>learning engine</strong> designed to support a wide variety of learning domains:
+languages, writing systems, solfège, symbols, structured vocabularies, or any domain
+that can be expressed as <em>cards</em>, <em>examples</em>, and <em>progressive practice</em>.</p>
+<p>Language learning is only one possible use case.
+Dyglot Korean v1 is one concrete product built on top of earlier Dyglot ideas.
+Dyglot v2 generalizes this approach.</p>
+<p>Dyglot is designed around <strong>three distinct actors</strong>, each with clearly separated roles,
+responsibilities, and tools.</p>
+<hr />
+<h2 id="the-three-actors">The Three Actors<a class="headerlink" href="#the-three-actors" title="Permanent link">&para;</a></h2>
+<h3 id="1-system-developer">1. System Developer<a class="headerlink" href="#1-system-developer" title="Permanent link">&para;</a></h3>
+<p>The system developer designs and maintains the <strong>Dyglot engine</strong>.</p>
+<p>Responsibilities:
+    •   designs the Dyglot engine,
+    •   defines the data model capabilities,
+    •   defines what is possible and impossible,
+    •   but does not define pedagogy.</p>
+<ul>
+<li>core data model</li>
+<li>storage formats</li>
+<li>APIs</li>
+<li>performance and scalability</li>
+<li>cross-platform delivery (desktop, mobile, web)</li>
+</ul>
+<p>The system developer <strong>does not design pedagogical content</strong>, and <strong>does not design learning UIs</strong>.</p>
+<p>In Dyglot v2, the system developer explicitly avoids imposing domain assumptions
+(language-specific fields, fixed card structures, or pedagogical rules).</p>
+<p>The system developer does not decide how people learn.
+He builds the engine that allows teachers to decide.</p>
+<hr />
+<h3 id="2-teacher">2. Teacher<a class="headerlink" href="#2-teacher" title="Permanent link">&para;</a></h3>
+<p>The teacher is the <strong>creator of learning content and learning experiences</strong>.</p>
+<blockquote>
+<p><strong>Dyglot Teacher is designed for teachers who do not know — and do not want to know —
+HTML, SQL, or programming concepts.<br />
+This is not a limitation. It is a design requirement.</strong></p>
+</blockquote>
+<p>Responsibilities:
+- defining <strong>card data</strong>
+- defining <strong>views</strong> (what the student sees)
+- defining <strong>filters</strong>
+- defining <strong>courses / classrooms</strong>
+- deciding what the student can and cannot configure</p>
+<p>The teacher works using <strong>Dyglot Teacher</strong>, a <strong>desktop studio</strong>, not a mobile app.</p>
+<p>The teacher thinks in terms of:
+- cards
+- fields
+- examples
+- views
+- practice flows</p>
+<p>Not in terms of:
+- tables
+- schemas
+- joins
+- markup languages</p>
+<p>The teacher:
+    •   creates learning content,
+    •   structures curricula,
+    •   defines how knowledge is presented,
+    •   defines what the learner sees,
+    •   defines what is hidden and what is revealed.</p>
+<p>The teacher:
+    •   does not write SQL
+    •   does not write HTML
+    •   does not think in terms of tables, joins, or schemas</p>
+<p>The teacher thinks in terms of:
+    •   concepts,
+    •   examples,
+    •   views,
+    •   progressions,
+    •   filters,
+    •   pedagogy.</p>
+<p>Dyglot Teacher is therefore a studio, not a runtime app.
+It runs on desktop, not on a phone.</p>
+<hr />
+<h3 id="3-student">3. Student<a class="headerlink" href="#3-student" title="Permanent link">&para;</a></h3>
+<p>The student uses <strong>Dyglot Student</strong> to learn.</p>
+<p>The student experience is intentionally simple and constrained.</p>
+<p>A successful student home screen contains only:
+- a <strong>view selector</strong> (radio buttons)
+- a <strong>filter selector</strong> (predefined by the teacher)
+- a large <strong>Practice</strong> or <strong>Browse</strong> button</p>
+<p>The student:
+- does <strong>not</strong> define filters
+- does <strong>not</strong> modify views
+- does <strong>not</strong> design sessions</p>
+<p>Those choices belong to the teacher.</p>
+<p>The student:
+    •   does not configure pedagogy,
+    •   does not create filters,
+    •   does not decide which fields exist,
+    •   does not alter views.</p>
+<p>The student:
+    •   selects from what the teacher has defined,
+    •   practices,
+    •   browses,
+    •   progresses.</p>
+<p>A successful student UI is extremely simple.</p>
+<hr />
+<h2 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h2>
+<h3 id="card">Card<a class="headerlink" href="#card" title="Permanent link">&para;</a></h3>
+<p>A <strong>card</strong> is a unit of knowledge.</p>
+<p>In Dyglot v2, a card is:
+- a collection of fields (1–1 relationships)
+- a collection of lists (1–N relationships)
+- optionally linked media (audio, images, etc.)</p>
+<p>A card does <strong>not</strong> contain presentation logic.</p>
+<p>This is a deliberate departure from systems where each card embeds its own HTML layout.</p>
+<hr />
+<h3 id="cardset">CardSet<a class="headerlink" href="#cardset" title="Permanent link">&para;</a></h3>
+<p>A <strong>CardSet</strong> is a <strong>shared data source</strong>:
+- a collection of cards
+- possibly multilingual
+- possibly reused by multiple courses</p>
+<p>Example:
+- one CardSet containing Korean / English / Japanese data
+- reused by multiple courses with different pedagogical goals</p>
+<p>CardSets are <strong>maintained by the teacher</strong> and may evolve over time.</p>
+<hr />
+<h3 id="course-formerly-classroom">Course (formerly “Classroom”)<a class="headerlink" href="#course-formerly-classroom" title="Permanent link">&para;</a></h3>
+<p>A <strong>Course</strong> (previously called <em>Classroom</em>) is a <strong>learning structure built on top of one or more CardSets</strong>.</p>
+<p>A course defines:
+- which cards are used
+- which views exist
+- which filters exist
+- which learning flows are available</p>
+<p>A course is <strong>closed and coherent</strong>.
+It is not an unbounded database.</p>
+<p>Dyglot v2 explicitly avoids the idea of a single “giant classroom”.</p>
+<hr />
+<h3 id="view">View<a class="headerlink" href="#view" title="Permanent link">&para;</a></h3>
+<p>A <strong>View</strong> defines <strong>what the student sees</strong>.</p>
+<p>Examples:
+- Vocabulary view
+- Hanja view
+- English → Korean view
+- Browse view
+- Quiz view
+- Listening-only view</p>
+<p>A view is defined by the teacher.</p>
+<p>The student only selects among existing views.</p>
+<h4 id="question-vs-answer">Question vs Answer<a class="headerlink" href="#question-vs-answer" title="Permanent link">&para;</a></h4>
+<p>In Dyglot v2, a view may define:
+- a <strong>question layout</strong>
+- a <strong>response layout</strong></p>
+<p>These may be:
+- the same layout with fields revealed
+- or two entirely distinct layouts</p>
+<p>This avoids hardcoding the idea that “answer = unmasking fields”.</p>
+<hr />
+<h3 id="filter">Filter<a class="headerlink" href="#filter" title="Permanent link">&para;</a></h3>
+<p>A <strong>Filter</strong> is a predefined selection rule for cards.</p>
+<p>Filters are:
+- defined by the teacher
+- attached to a course and a view
+- selectable by the student</p>
+<p>Examples:
+- beginner cards
+- verbs only
+- recently failed cards
+- lesson 1</p>
+<p>The student does <strong>not</strong> create filters.</p>
+<hr />
+<h3 id="session">Session<a class="headerlink" href="#session" title="Permanent link">&para;</a></h3>
+<p>A <strong>Session</strong> is a <strong>temporary learning context</strong> created when the student presses:
+- Practice
+- Browse</p>
+<p>A session represents:
+- a progression through a filtered set of cards
+- independent of other sessions
+- resumable</p>
+<p>Sessions are student-specific and ephemeral.</p>
+<hr />
+<h2 id="local-downloadable-and-remote-courses">Local, Downloadable, and Remote Courses<a class="headerlink" href="#local-downloadable-and-remote-courses" title="Permanent link">&para;</a></h2>
+<p>Courses may be:
+- bundled locally with the application
+- downloadable
+- remotely hosted</p>
+<p>Dyglot v2 supports <strong>discovery</strong>:</p>
+<p>A student may see:
+- local courses shipped with the app
+- official courses published by Canardoux
+- courses published by trusted registrars
+- manually added courses (advanced users)</p>
+<p>Teachers do <strong>not</strong> publish directly into a global public space.</p>
+<p>Registrars curate and validate courses to avoid abuse and chaos.</p>
+<hr />
+<h2 id="why-this-architecture-exists">Why This Architecture Exists<a class="headerlink" href="#why-this-architecture-exists" title="Permanent link">&para;</a></h2>
+<p>Dyglot v2 exists to resolve long-standing tensions:
+- between card-centric and relational thinking
+- between freedom and maintainability
+- between teacher control and student simplicity
+- between reuse and coherence</p>
+<p>Dyglot v2 makes these tensions <strong>explicit</strong>, rather than hiding them in code.</p>
+<hr />
+<h2 id="terminology-glossary">Terminology &amp; Glossary<a class="headerlink" href="#terminology-glossary" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Card</strong>: atomic learning unit</li>
+<li><strong>CardSet</strong>: reusable collection of cards</li>
+<li><strong>Course</strong>: structured learning experience built on CardSets</li>
+<li><strong>View</strong>: teacher-defined presentation of cards</li>
+<li><strong>Filter</strong>: teacher-defined card selection</li>
+<li><strong>Session</strong>: student learning progression</li>
+<li><strong>Teacher</strong>: content and pedagogy designer</li>
+<li><strong>Student</strong>: learner</li>
+<li><strong>System Developer</strong>: engine designer</li>
+<li>The Three Actors</li>
+</ul>
+<p>Dyglot v2 is explicitly built around three distinct actors.</p>
+<p>They are not roles hidden in the implementation —
+they are first-class concepts, visible in the design, the tools, and the documentation.</p>
+<p>1.1 The System Developer</p>
+<p>The system developer:
+    •   designs the Dyglot engine,
+    •   defines the data model capabilities,
+    •   defines what is possible and impossible,
+    •   but does not define pedagogy.</p>
+<p>The system developer does not decide how people learn.
+He builds the engine that allows teachers to decide.</p>
+<p>⸻</p>
+<p>1.2 The Teacher</p>
+<p>Dyglot Teacher is designed for teachers who do not know — and do not want to know — HTML, SQL, or programming concepts.
+This is not a limitation. It is a design requirement.</p>
+<p>The teacher:
+    •   creates learning content,
+    •   structures curricula,
+    •   defines how knowledge is presented,
+    •   defines what the learner sees,
+    •   defines what is hidden and what is revealed.</p>
+<p>The teacher:
+    •   does not write SQL
+    •   does not write HTML
+    •   does not think in terms of tables, joins, or schemas</p>
+<p>The teacher thinks in terms of:
+    •   concepts,
+    •   examples,
+    •   views,
+    •   progressions,
+    •   filters,
+    •   pedagogy.</p>
+<p>Dyglot Teacher is therefore a studio, not a runtime app.
+It runs on desktop, not on a phone.</p>
+<p>⸻</p>
+<p>1.3 The Student</p>
+<p>The student:
+    •   does not configure pedagogy,
+    •   does not create filters,
+    •   does not decide which fields exist,
+    •   does not alter views.</p>
+<p>The student:
+    •   selects from what the teacher has defined,
+    •   practices,
+    •   browses,
+    •   progresses.</p>
+<p>A successful student UI is extremely simple.</p>
+<p>⸻</p>
+<ol>
+<li>Core Concept: Classroom</li>
+</ol>
+<p>The central concept in Dyglot is the Classroom.</p>
+<p>A classroom:
+    •   is not a database (even if implemented as one),
+    •   is not a file format,
+    •   is not a lesson.</p>
+<p>A classroom is:</p>
+<p>a coherent body of structured knowledge, designed by a teacher, meant to be explored and practiced by students.</p>
+<p>The term “classroom” is deliberately chosen because:
+    •   it is understood by teachers,
+    •   it is understood by developers,
+    •   it is not tied to relational-database vocabulary.</p>
+<p>Even though a classroom may be backed by SQL internally,
+teachers never see it as such.</p>
+<p>⸻</p>
+<ol>
+<li>Cards (Neutral, Non-Pedagogical)</li>
+</ol>
+<p>A card is a unit of knowledge.</p>
+<p>Important design decision:</p>
+<p>A card does not embed its presentation.</p>
+<p>A card is:
+    •   structured data,
+    •   neutral,
+    •   reusable across multiple views.</p>
+<p>A card may have:
+    •   attributes (1-to-1),
+    •   relations (1-to-many),
+    •   optional attributes,
+    •   domain-specific fields.</p>
+<p>The engine does not impose semantics like:
+    •   “this field is the front”
+    •   “this field is the back”
+    •   “this is a language”</p>
+<p>Those semantics belong to Views, not to Cards.</p>
+<p>This is a deliberate difference from systems like Anki.</p>
+<p>⸻</p>
+<ol>
+<li>Views (Teacher-Defined)</li>
+</ol>
+<p>A View defines how cards are presented.</p>
+<p>Views are defined by the teacher, not by the student.</p>
+<p>Examples:
+    •   Korean → English
+    •   English → Korean
+    •   Hanja-focused
+    •   Browsing mode
+    •   Any domain-specific view</p>
+<p>Each view defines:
+    •   what is shown on the question side
+    •   what is shown on the answer side
+    •   or how information is revealed progressively</p>
+<p>Important Decision</p>
+<p>In Dyglot v2:
+    •   Question and Answer may be two distinct layouts
+    •   Reveal-by-unmasking is optional, not imposed</p>
+<p>This avoids hard-coding assumptions and allows:
+    •   recto/verso models,
+    •   reveal-based models,
+    •   hybrid models.</p>
+<p>Types de vues définies par le Teacher</p>
+<ol>
+<li>Practice View (Quiz / Training)</li>
+</ol>
+<p>La vue “classique” d’apprentissage.
+    •   Présente une question
+    •   Attend une réponse (mentale, tapée, ou juste révélée)
+    •   Gère une progression (session)
+    •   Peut être utilisée avec différents filtres</p>
+<p>⚠️ Point clé (important) :
+Cette vue peut être :
+    •   soit une vue unique avec des champs masqués / révélés,
+    •   soit deux vues distinctes :
+    •   Question View
+    •   Answer View</p>
+<p>👉 C’est un choix du Teacher, pas du moteur.</p>
+<p>⸻</p>
+<ol>
+<li>Browse View</li>
+</ol>
+<p>Vue de consultation libre.
+    •   Pas de notion de question / réponse
+    •   Pas de score
+    •   Pas de pression
+    •   Permet d’explorer les cartes comme un dictionnaire ou un catalogue</p>
+<p>Typiquement :
+    •   voir toutes les infos d’une carte
+    •   naviguer, filtrer, lire, écouter</p>
+<p>⸻</p>
+<ol>
+<li>Reverse Practice View</li>
+</ol>
+<p>Vue de pratique “inversée”.</p>
+<p>Exemples :
+    •   Anglais → Coréen
+    •   Définition → Terme
+    •   Son → Mot
+    •   Hanja → Hangul</p>
+<p>👉 Ce n’est pas un “mode magique”
+👉 C’est une vue différente, définie explicitement par le Teacher</p>
+<p>⸻</p>
+<ol>
+<li>Recognition View</li>
+</ol>
+<p>Vue de reconnaissance passive.
+    •   L’utilisateur voit / entend quelque chose
+    •   Il évalue lui-même s’il reconnaît ou non
+    •   Interaction minimale (✓ / ✗ / “je sais” / “je ne sais pas”)</p>
+<p>Très utile pour :
+    •   révisions rapides
+    •   transport
+    •   fatigue cognitive</p>
+<p>⸻</p>
+<ol>
+<li>Explained View</li>
+</ol>
+<p>Vue pédagogique.
+    •   La carte est présentée avec explication
+    •   Le Teacher décide quels champs sont visibles
+    •   Peut inclure :
+    •   notes
+    •   commentaires
+    •   règles
+    •   exemples détaillés</p>
+<p>Souvent utilisée :
+    •   avant la pratique
+    •   après un échec
+    •   comme support de cours</p>
+<p>⸻</p>
+<ol>
+<li>Audio-First View</li>
+</ol>
+<p>Vue centrée sur le son.
+    •   Le son est le point d’entrée
+    •   Les autres champs peuvent être masqués au départ
+    •   Idéal pour prononciation, écoute, rythme</p>
+<p>⸻</p>
+<ol>
+<li>Hanja / Script-Focused View</li>
+</ol>
+<p>Vue spécialisée sur un système d’écriture ou une dimension précise.</p>
+<p>Exemples :
+    •   Hanja
+    •   Kana / Kanji
+    •   IPA
+    •   Solfège (notation musicale, rythme)</p>
+<p>👉 Encore une fois : vue définie par le Teacher, pas codée en dur.</p>
+<p>⸻</p>
+<ol>
+<li>Free / Custom View</li>
+</ol>
+<p>Vue totalement libre.
+    •   Le Teacher assemble les champs
+    •   Décide de l’ordre
+    •   Décide de ce qui est visible ou conditionnel
+    •   Décide si la vue est “pratiquante” ou “consultative”</p>
+<p>C’est là que ton moteur devient généraliste.</p>
+<p>⸻</p>
+<p>Ce que le Student voit (très important)</p>
+<p>Pour le Student, tout ça se résume à :
+    •   une liste de vues (boutons radio ou équivalent)
+    •   une liste de filtres prédéfinis
+    •   un gros bouton :
+    •   Practice
+    •   ou Browse</p>
+<p>👉 Aucune création
+👉 Aucune édition
+👉 Aucune complexité</p>
+<p>⸻</p>
+<ol>
+<li>Sessions (Student Progress)</li>
+</ol>
+<p>A Session represents:</p>
+<p>a learner’s progression inside a classroom, for a given view and filter.</p>
+<p>A session:
+    •   is created when the student starts practicing or browsing,
+    •   persists progress,
+    •   does not redefine pedagogy.</p>
+<p>Sessions are student-side concepts, but:
+    •   they operate only inside teacher-defined boundaries.</p>
+<p>⸻</p>
+<ol>
+<li>Filters (Teacher-Defined)</li>
+</ol>
+<p>Filters define which cards are eligible for a session.</p>
+<p>Key rule in Dyglot v2:</p>
+<p>Filters are defined by the teacher, not by the student.</p>
+<p>This is a major correction compared to Dyglot v1.</p>
+<p>The student:
+    •   selects a filter from a list,
+    •   does not create or edit filters.</p>
+<p>This ensures:
+    •   a clean, simple entry screen,
+    •   pedagogical coherence,
+    •   no accidental complexity for the learner.</p>
+<p>⸻</p>
+<ol>
+<li>The Student Entry Screen (Design Principle)</li>
+</ol>
+<p>A successful student entry screen contains only:
+    1.  View selection (radio buttons)
+    2.  Filter selection (predefined)
+    3.  A large Practice or Browse button</p>
+<p>Nothing else.</p>
+<p>No field toggles.
+No pedagogy controls.
+No technical options.</p>
+<p>⸻</p>
+<ol>
+<li>Why Dyglot v2 Breaks with Dyglot v1</li>
+</ol>
+<p>Dyglot v1:
+    •   mixed views into a single conditional screen,
+    •   allowed students to alter display logic,
+    •   coupled UI logic tightly to code,
+    •   was difficult to maintain and evolve.</p>
+<p>Dyglot v2:
+    •   separates views cleanly,
+    •   moves pedagogical control to the teacher,
+    •   simplifies the student experience,
+    •   prepares the engine for domains beyond languages.</p>
+<p>⸻</p>
+<ol>
+<li>Documentation Structure</li>
+</ol>
+<p>Dyglot v2 documentation is split conceptually into three parts:</p>
+<p>9.1 Dyglot Engine
+    •   technical specifications
+    •   data model capabilities
+    •   constraints and guarantees</p>
+<p>9.2 Dyglot Teacher
+    •   how teachers design classrooms
+    •   how views and filters are defined
+    •   how pedagogy is expressed without code</p>
+<p>9.3 Dyglot Student
+    •   how students navigate learning
+    •   what sessions are
+    •   what views and filters mean from their perspective</p>
+<p>The present document is the shared root of all three.</p>
+<p>⸻</p>
+<ol>
+<li>Final Guiding Principle</li>
+</ol>
+<p>In Dyglot v2, what the learner sees is part of the curriculum.</p>
+<p>Therefore:
+    •   the teacher defines views,
+    •   the system enforces structure,
+    •   the student focuses on learning.</p>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>Dyglot v2 is:
+- a learning engine
+- teacher-driven
+- student-friendly
+- domain-agnostic
+- explicit about responsibilities</p>
+<p>Dyglot v2 is not:
+- a language app
+- a card HTML editor
+- a free-for-all database
+- a system where the student designs pedagogy</p>
+<p>This clarity is intentional.</p>
+<h1 id="dyglot-documentation">Dyglot Documentation<a class="headerlink" href="#dyglot-documentation" title="Permanent link">&para;</a></h1>
+<p>This documentation is intentionally minimal and evolving.</p>
+<p>Dyglot is a language-learning project centered around a simple idea:</p>
+<blockquote>
+<p>present the right card, at the right time.</p>
+</blockquote>
+<p>The documentation is written progressively, alongside the project itself.</p>
+<hr />
+<h1 id="dyglot-v2">Dyglot v2<a class="headerlink" href="#dyglot-v2" title="Permanent link">&para;</a></h1>
+<p>Dyglot is <strong>not</strong> a language-learning app.</p>
+<p>Dyglot is a <strong>generic learning engine</strong> designed to support structured learning using:
+- cards,
+- views,
+- teacher-defined filters,
+- and student sessions (progression over time).</p>
+<p>Dyglot v1 (Dyglot Korean) was a bundled product for Korean learners.
+Dyglot v2 separates:
+- the engine,
+- the content,
+- and the learning experience.</p>
+<h2 id="the-three-actors_1">The Three Actors<a class="headerlink" href="#the-three-actors_1" title="Permanent link">&para;</a></h2>
+<p>Dyglot supports three distinct actors:</p>
+<h3 id="system-developer">System Developer<a class="headerlink" href="#system-developer" title="Permanent link">&para;</a></h3>
+<p>Builds and maintains the engine, tools, formats, and constraints.</p>
+<h3 id="teacher">Teacher<a class="headerlink" href="#teacher" title="Permanent link">&para;</a></h3>
+<p>Creates learning content and defines the student experience.</p>
+<p><strong>Design requirement:</strong> Teachers must not need HTML, SQL, or programming.</p>
+<h3 id="student">Student<a class="headerlink" href="#student" title="Permanent link">&para;</a></h3>
+<p>Learns. Chooses among teacher-defined options (views, filters) and practices.</p>
+<h2 id="some-possible-icons-for-dyglot">Some possible icons for Dyglot<a class="headerlink" href="#some-possible-icons-for-dyglot" title="Permanent link">&para;</a></h2>
+<p><img alt="Dyglot Korean icon" src="icons.png" />
+<em>Dyglot Teacher — conceptual icon</em></p>
+<p align="center">
+  <img src="../images/dyglot-korean.png" width="96">
+  <img src="../images/dyglot-teacher.png" width="96">
+  <img src="../images/dyglot-student.png" width="96">
+</p>
+
+<h2 id="where-to-go-next">Where to go next<a class="headerlink" href="#where-to-go-next" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="glossary/">Glossary</a></li>
+<li>Teacher docs: <code>teacher/</code></li>
+<li>Student docs: <code>student/</code></li>
+<li>System docs: `system/'</li>
+</ul>
+<p>Dyglot is <strong>not</strong> a language-learning application.</p>
+<p>Dyglot is a <strong>learning engine</strong> designed to support multiple domains,
+multiple pedagogical approaches, and multiple actors.</p>
+<h2 id="the-three-actors_2">The Three Actors<a class="headerlink" href="#the-three-actors_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>System Developer</strong></li>
+<li><strong>Teacher</strong></li>
+<li><strong>Student</strong></li>
+</ul>
+<h2 id="pages">Pages<a class="headerlink" href="#pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Vision &amp; Architecture (FR)</strong><br />
+  Conceptual foundations of Dyglot.</p>
+</li>
+<li>
+<p><strong>Vision &amp; Architecture (EN)</strong><br />
+  English version of the same document.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": [], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
