@@ -1,36 +1,41 @@
 # Dyglot v2 — Introduction & Conceptual Overview
 
+Dyglot is a language-learning project centered around a simple idea:
+
+> present the right card, at the right time.
+
+
 ## What Dyglot Is — and What It Is Not
 
 Dyglot is **not** a language-learning application.
 
 Dyglot is a **learning engine** designed to support a wide variety of learning domains:
-languages, writing systems, solfège, symbols, structured vocabularies, or any domain
-that can be expressed as *cards*, *examples*, and *progressive practice*.
 
-
-Language learning is only one possible use case.
-Dyglot Korean v1 is one concrete product built on top of earlier Dyglot ideas.
-Dyglot v2 generalizes this approach.
-
-Dyglot is designed around **three distinct actors**, each with clearly separated roles,
-responsibilities, and tools.
-
-Dyglot is **not** a language-learning application.
-
-Dyglot is a **learning engine** designed to support multiple domains,
-multiple pedagogical approaches, and multiple actors.
-
-Dyglot is **not** a language-learning app.
+- languages, 
+- writing systems, 
+- solfège, symbols, 
+- structured vocabularies, 
+- traffic laws, 
+- or any domain that can be expressed as *cards*, *examples*, and *progressive practice*.
 
 Dyglot is a **generic learning engine** designed to support structured learning using:
+multiple pedagogical approaches, and multiple actors.
+
+Core concepts are :
+
 - cards,
 - views,
 - teacher-defined filters,
 - and student sessions (progression over time).
 
-Dyglot v1 (Dyglot Korean) was a bundled product for Korean learners.
+
+Language learning is only one possible use case.
+
+Dyglot Korean v1 was one concrete product built on top of earlier Dyglot ideas.
+It was a bundled product for Korean learners.
+Dyglot v2 generalizes this approach.
 Dyglot v2 separates:
+
 - the engine,
 - the content,
 - and the learning experience.
@@ -40,6 +45,9 @@ Dyglot v2 separates:
 ## The Three Actors
 
 Dyglot v2 is explicitly built around three distinct actors.
+Dyglot is designed around **three distinct actors**, each with clearly separated roles,
+responsibilities, and tools.
+
 
 They are not roles hidden in the implementation —
 they are first-class concepts, visible in the design, the tools, and the documentation.
@@ -65,23 +73,6 @@ The student:
 - does not decide which fields exist,
 
 Those choices belong to the teacher.
-
-The student:
-
-- selects from what the teacher has defined,
-- practices,
-- browses,
-- progresses.
-
-A successful student UI is extremely simple.
-
-
-The student:
-
-- does not configure pedagogy,
-- does not create filters,
-- does not decide which fields exist,
-- does not alter views.
 
 The student:
 
@@ -119,6 +110,10 @@ The teacher thinks in terms of:
 - examples
 - views
 - practice flows
+- concepts,
+- progressions,
+- filters,
+- pedagogy.
 
 Not in terms of:
 
@@ -140,44 +135,6 @@ The teacher:
 - does not write SQL
 - does not write HTML
 - does not think in terms of tables, joins, or schemas
-
-The teacher thinks in terms of:
-
-- concepts,
-- examples,
-- views,
-- progressions,
-- filters,
-- pedagogy.
-
-Dyglot Teacher is therefore a studio, not a runtime app.
-It runs on desktop, not on a phone.
-
-Dyglot Teacher is designed for teachers who do not know — and do not want to know — HTML, SQL, or programming concepts.
-This is not a limitation. It is a design requirement.
-
-The teacher:
-
-- creates learning content,
-- structures curricula,
-- defines how knowledge is presented,
-- defines what the learner sees,
-- defines what is hidden and what is revealed.
-
-The teacher:
-
-- does not write SQL
-- does not write HTML
-- does not think in terms of tables, joins, or schemas
-
-The teacher thinks in terms of:
-
-- concepts,
-- examples,
-- views,
-- progressions,
-- filters,
-- pedagogy.
 
 Dyglot Teacher is therefore a studio, not a runtime app.
 It runs on desktop, not on a phone.
@@ -229,31 +186,16 @@ In Dyglot v2, a card is:
 - a collection of fields (1–1 relationships)
 - a collection of lists (1–N relationships)
 - optionally linked media (audio, images, etc.)
-
-A card does **not** contain presentation logic.
-
-This is a deliberate departure from systems where each card embeds its own HTML layout.
-
-3. Cards (Neutral, Non-Pedagogical)
-
-A card is a unit of knowledge.
-
-Important design decision:
-
-A card does not embed its presentation.
-
-A card is:
-
-- structured data,
-- neutral,
-- reusable across multiple views.
-
-A card may have:
-
 - attributes (1-to-1),
 - relations (1-to-many),
 - optional attributes,
 - domain-specific fields.
+- structured data,
+- neutral,
+- reusable across multiple views.
+
+Important design decision:
+A card does not embed its presentation.
 
 The engine does not impose semantics like:
 
@@ -263,9 +205,9 @@ The engine does not impose semantics like:
 
 Those semantics belong to Views, not to Cards.
 
-This is a deliberate difference from systems like Anki.
+A card does **not** contain presentation logic.
 
-
+This is a deliberate departure from systems where each card embeds its own HTML layout like Anki.
 
 ---
 
@@ -287,7 +229,6 @@ CardSets are **maintained by the teacher** and may evolve over time.
 ---
 
 ### Course (formerly “Classroom”)
-### 2. Core Concept: Classroom
 
 A **Course** (previously called *Classroom*) is a **learning structure built on top of one or more CardSets**.
 
@@ -303,41 +244,44 @@ It is not an unbounded database.
 
 Dyglot v2 explicitly avoids the idea of a single “giant classroom”.
 
-The central concept in Dyglot is the Classroom.
+The central concept in Dyglot is the course.
 
-A classroom:
+A course:
 - is not a database (even if implemented as one),
 - is not a file format,
 - is not a lesson.
 
-A classroom is:
+A course is:
 
 a coherent body of structured knowledge, designed by a teacher, meant to be explored and practiced by students.
 
-The term “classroom” is deliberately chosen because:
+The term "course" is deliberately chosen because:
 
 - it is understood by teachers,
 - it is understood by developers,
 - it is not tied to relational-database vocabulary.
 
-Even though a classroom may be backed by SQL internally,
+Even though a course may be backed by SQL internally,
 teachers never see it as such.
 
 ---
 
-### View
-### 4. Views (Teacher-Defined)
+### Views (Teacher-Defined)
 
 A **View** defines **what the student sees**.
 
 Examples:
 
 - Vocabulary view
-- Hanja view
-- English → Korean view
 - Browse view
 - Quiz view
 - Listening-only view
+- Korean → English
+- English → Korean
+- Hanja-focused
+- Any domain-specific view
+
+
 
 A view is defined by the teacher.
 
@@ -360,14 +304,6 @@ This avoids hardcoding the idea that “answer = unmasking fields”.
 A View defines how cards are presented.
 
 Views are defined by the teacher, not by the student.
-
-Examples:
-
-- Korean → English
-- English → Korean
-- Hanja-focused
-- Browsing mode
-- Any domain-specific view
 
 Each view defines:
 
@@ -535,9 +471,10 @@ Pour le Student, tout ça se résume à :
 
 ---
 
-### Filter
+### Filter (Teacher-Defined)
 
 A **Filter** is a predefined selection rule for cards.
+Filters define which cards are eligible for a session.
 
 Filters are:
 
@@ -554,14 +491,7 @@ Examples:
 
 The student does **not** create filters.
 
-6. Filters (Teacher-Defined)
-
-Filters define which cards are eligible for a session.
-
-Key rule in Dyglot v2:
-
-Filters are defined by the teacher, not by the student.
-
+Key rule in Dyglot v2: Filters are defined by the teacher, not by the student.
 This is a major correction compared to Dyglot v1.
 
 The student:
@@ -645,19 +575,6 @@ Dyglot v2 makes these tensions **explicit**, rather than hiding them in code.
 
 ---
 
-## Terminology & Glossary
-
-- **Card**: atomic learning unit
-- **CardSet**: reusable collection of cards
-- **Course**: structured learning experience built on CardSets
-- **View**: teacher-defined presentation of cards
-- **Filter**: teacher-defined card selection
-- **Session**: student learning progression
-- **Teacher**: content and pedagogy designer
-- **Student**: learner
-- **System Developer**: engine designer
-
-
 
 ⸻
 
@@ -691,6 +608,35 @@ Therefore:
 - the system enforces structure,
 - the student focuses on learning.
 
+**Design requirement:** Teachers must not need HTML, SQL, or programming.
+
+## The documentation
+
+Dyglot v2 documentation is split conceptually into four parts:
+
+### [Introduction](introduction/index.md)
+
+This is the current part
+
+### [Student](student/index.md)
+
+- how students navigate learning
+- what sessions are
+- what views and filters mean from their perspective
+
+### [Teacher](teacher/index.md)
+
+- how teachers design classrooms
+- how views and filters are defined
+- how pedagogy is expressed without code
+
+### [Engine](engine/index.md)
+
+- technical specifications
+- data model capabilities
+- constraints and guarantees
+
+
 ---
 
 ## Summary
@@ -712,32 +658,7 @@ Dyglot v2 is not:
 
 This clarity is intentional.
 
-# Dyglot Documentation
-
-This documentation is intentionally minimal and evolving.
-
-Dyglot is a language-learning project centered around a simple idea:
-
-> present the right card, at the right time.
-
-The documentation is written progressively, alongside the project itself.
-
 ---
-
-# Dyglot v2
-
-
-
-### System Developer
-Builds and maintains the engine, tools, formats, and constraints.
-
-### Teacher
-Creates learning content and defines the student experience.
-
-**Design requirement:** Teachers must not need HTML, SQL, or programming.
-
-### Student
-Learns. Chooses among teacher-defined options (views, filters) and practices.
 
 ## Some possible icons for Dyglot
 

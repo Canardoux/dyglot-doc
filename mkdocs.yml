@@ -42,10 +42,14 @@ nav:
       - Content Model: teacher/content-model.md
       - Publishing: teacher/publishing.md
       - Views: teacher/view.md
+      - Screen Design: teacher/screen.md
+      - Live Preview: teacher/live-preview.md
       - FAQ: teacher/faq.md
  
   - Engine:
       - Overview: engine/index.md
+      - Studio: engine/studio.md
+      - Live Preview: engine/preview.md
 
 markdown_extensions:
   - toc:

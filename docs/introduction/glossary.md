@@ -30,3 +30,16 @@ A student's progression through cards within a given:
 - view
 - filter
 Sessions track state over time (practice or browse).
+
+# Terminology & Glossary
+
+- **Card**: atomic learning unit
+- **CardSet**: reusable collection of cards
+- **Course**: structured learning experience built on CardSets
+- **View**: teacher-defined presentation of cards
+- **Filter**: teacher-defined card selection
+- **Session**: student learning progression
+- **Teacher**: content and pedagogy designer. Creates learning content and defines the student experience.
+- **Student**: learner. Learns. Chooses among teacher-defined options (views, filters) and practices.
+- **System Developer**: engine designer. Builds and maintains the engine, tools, formats, and constraints.
+
