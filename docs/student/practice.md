@@ -1,3 +1,167 @@
+# Student — Practice Screen  
+*(What Depends on the Teacher)*
+
+## Why this page exists
+
+The Practice Screen is the core of the Dyglot Student experience.
+
+It is where:
+- questions are shown,
+- answers are revealed,
+- progress is recorded.
+
+At the same time, the Practice Screen can look very different from one Course to another.
+
+This is not accidental.
+
+In Dyglot v2, **the Practice Screen is largely defined by the Teacher**.
+
+This page explains what the Student can expect — and why some things may vary.
+
+---
+
+## What the Student sees, at a glance
+
+When entering Practice mode, the Student typically sees:
+
+- One card at a time
+- A clear question
+- A way to reveal or access the answer
+- A small set of simple action buttons
+
+Everything else — layout, fields, typography — depends on the Course.
+
+---
+
+## The role of the Teacher
+
+The Teacher defines:
+
+- Which **Views** are available
+- Which **fields** appear in each View
+- How the **Question View** looks
+- How the **Answer View** looks
+- Which **engine** drives the interaction
+
+The Student does not configure these elements.
+
+> If the Practice Screen looks a certain way,  
+> it is because the Teacher designed it that way.
+
+---
+
+## Question and Answer flow
+
+In most Courses, Practice mode follows this pattern:
+
+1. A **Question View** is displayed  
+2. The Student thinks or answers mentally  
+3. The **Answer View** is displayed  
+4. The Student chooses an action (buttons)
+
+Question and Answer are two distinct Views.
+They may show different fields and layouts.
+
+---
+
+## Action buttons (engine-dependent)
+
+The buttons available to the Student depend on the **engine** selected by the Teacher.
+
+### Example — V1-like engine
+Typical buttons:
+- **Good**
+- **Wrong**
+- **Later**
+
+### Example — Anki-like engine
+Typical buttons:
+- **Again**
+- **Hard**
+- **Good**
+- **Easy**
+
+### Example — Custom engine
+Buttons may differ depending on the Course.
+
+The Student does not choose the engine.
+They only interact with the buttons provided.
+
+---
+
+## What is always simple
+
+Regardless of the Course or engine:
+
+- The number of buttons is small
+- The labels are explicit
+- No configuration is required during practice
+- No technical knowledge is expected
+
+Practice mode is designed to be:
+- focused,
+- repetitive,
+- low-friction.
+
+---
+
+## What the Student can control
+
+The Student can:
+- Choose a **View** (if multiple are available)
+- Choose a **Filter** (predefined by the Teacher)
+- Start or resume a Practice session
+- Reset a session
+
+The Student cannot:
+- Modify Views
+- Change field visibility
+- Alter scoring rules
+- Redefine pedagogy
+
+---
+
+## Why this matters
+
+Dyglot v1 allowed Students to tweak many presentation settings.
+This caused confusion and inconsistency.
+
+Dyglot v2 makes a clear choice:
+
+> **Students learn. Teachers design.**
+
+This separation keeps Practice mode:
+- predictable,
+- understandable,
+- and reliable.
+
+---
+
+## When documentation is minimal
+
+Some Teachers may provide extensive documentation.
+Others may provide very little.
+
+Dyglot v2 is designed so that:
+- Practice remains usable even without detailed explanations
+- The UI itself communicates what matters
+- Students are not required to understand the internal model
+
+If a Course works well, the Student should not need to read anything.
+
+---
+
+## Summary
+
+- The Practice Screen is **Course-defined**
+- Views and engines are chosen by the Teacher
+- The Student experience remains simple
+- Differences between Courses are intentional
+- Pedagogy is upstream, not user-configurable
+
+If something looks different from another Course,  
+it is not a bug — it is a teaching choice.
+
 ## About the Practice Screen
 
 The Practice screen is **not hard-coded by Dyglot**.

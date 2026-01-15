@@ -1,5 +1,158 @@
 # Teacher — Designing Views (Question vs Answer)
 
+## Why this page exists
+
+In Dyglot v1, Views were hard-coded by the application.
+Fields were shown or hidden dynamically, depending on modes and user settings.
+
+This approach worked, but it had serious limitations:
+- Views were difficult to maintain.
+- Teachers could not fully control presentation.
+- Students could modify display rules, which caused confusion.
+- The distinction between *question* and *answer* was implicit and rigid.
+
+Dyglot v2 changes this model completely.
+
+In Dyglot v2, **Views are explicitly designed by the Teacher**.
+
+---
+
+## What is a View?
+
+A **View** is a way to present a card to a Student.
+
+A View defines:
+- **Which fields are visible**
+- **How they are arranged**
+- **What is considered a Question**
+- **What is considered an Answer**
+- **Which interaction model is used (Quiz, Browse, etc.)**
+
+A View is always defined **inside a Course**.
+
+Students never design Views.  
+They only choose among the Views provided by the Teacher.
+
+---
+
+## Question vs Answer: Two explicit Views
+
+One of the most important design decisions in Dyglot v2 is this:
+
+> **A Question and an Answer are two distinct Views.**
+
+They are *not* the same View with fields hidden or revealed.
+
+### Why this matters
+
+In Dyglot v1, revealing the answer meant unmasking fields.
+This made it impossible to:
+- Define a true “front” and “back”
+- Rearrange the layout between question and answer
+- Change typography or emphasis
+- Create asymmetric designs
+
+In Dyglot v2:
+- A **Question View** defines what the Student sees before answering
+- An **Answer View** defines what the Student sees after answering
+
+This gives Teachers full control over pedagogy and presentation.
+
+---
+
+## Examples
+
+### Example 1 — Korean → English Quiz
+
+**Question View**
+- Korean word
+- Audio button
+- No translation visible
+
+**Answer View**
+- Korean word
+- English translations
+- Example sentences
+- Grammar tags
+
+### Example 2 — Browse Mode
+
+**Single View**
+- All fields visible
+- No question/answer logic
+- No scoring
+
+---
+
+## View engines
+
+Each View is associated with a **View Engine**.
+
+The engine defines:
+- How answers are evaluated
+- Which buttons are shown to the Student
+- How progress is updated
+
+Examples of engines:
+- **V1-like engine** (Good / Wrong / Later)
+- **Anki-like engine** (Again / Hard / Good / Easy)
+- **Custom engine** (defined by the Teacher)
+
+The engine is chosen by the Teacher, not the Student.
+
+---
+
+## What Students can and cannot do
+
+### Students can:
+- Choose a View (via radio buttons or similar)
+- Start a session using that View
+- Reset a session
+
+### Students cannot:
+- Modify which fields are visible
+- Change layout or typography
+- Create or edit Views
+- Change the underlying engine
+
+This is a deliberate design choice.
+
+> Pedagogy is the responsibility of the Teacher.
+
+---
+
+## Design principles
+
+- Views are **explicit**, not inferred
+- Question and Answer are **separate Views**
+- Teachers design pedagogy
+- Students focus on learning
+- UI complexity is moved upstream, not exposed to Students
+
+If a Student wonders *“why does this look like this?”*,  
+the answer is always: **because the Teacher decided so**.
+
+---
+
+## Relationship to Dyglot Studio
+
+Views are not expected to be written by hand.
+
+Dyglot v2 assumes the existence of a dedicated tool:
+
+**Dyglot Studio**
+
+Dyglot Studio allows Teachers to:
+- Design Views visually
+- Arrange fields graphically
+- Associate Views with engines
+- Preview Question and Answer flows
+
+Teachers are not required to know HTML, SQL, or programming concepts.
+
+This is not a limitation.  
+It is a design requirement.# Teacher — Designing Views (Question vs Answer)
+
 This page explains how teachers design **Views** in Dyglot, and in particular how
 **questions and answers** are defined.
 

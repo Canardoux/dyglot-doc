@@ -1,5 +1,243 @@
 # Teacher — Designing Filters Without Confusing Students
 
+Filters are powerful.  
+They can also be dangerous.
+
+In Dyglot, **Filters are a Teacher responsibility**.  
+They define how Students enter learning — often before they understand what they are learning.
+
+This page defines **strict design rules** for Filters, with a single objective:
+
+> **A Student must never wonder:**  
+> *“Why am I seeing these cards?”*
+
+---
+
+## What a Filter Is (Teacher Perspective)
+
+A **Filter** is a **named, predefined selection of Cards** inside a Course.
+
+Examples:
+- Beginner vocabulary  
+- Lesson 1–5  
+- Common verbs  
+- Hanja — basic set  
+- JLPT N5  
+
+A Filter:
+- does **not** modify Cards,
+- does **not** modify the Course,
+- only limits **which Cards participate in a Session**.
+
+---
+
+## What a Filter Is NOT
+
+A Filter is **not**:
+- a learning strategy,
+- a difficulty algorithm,
+- a Student preference editor,
+- a technical query language.
+
+If a Filter needs explanation to be used correctly,  
+it is already too complex.
+
+---
+
+## Filters Are Defined by the Teacher — Always
+
+In Dyglot v2:
+
+> **Students cannot create or modify Filters.**
+
+This is a deliberate design decision.
+
+Why?
+
+Because:
+- Filters shape Sessions,
+- Sessions define progress,
+- Progress must be predictable.
+
+Allowing Students to invent Filters leads to:
+- accidental resets,
+- invisible scope changes,
+- broken learning continuity.
+
+Dyglot assumes:
+
+> *The Teacher knows why a Filter exists.*  
+> *The Student only chooses among meaningful options.*
+
+---
+
+## One Filter = One Learning Intention
+
+Each Filter must express **one simple idea**.
+
+Bad examples:
+- “Beginner verbs except irregular ones from lesson 4”
+- “Everything except cards I don’t like”
+- “Level ≥ 2 AND verb OR adjective”
+
+Good examples:
+- “Beginner”
+- “Verbs”
+- “Irregular verbs”
+- “Lesson 3”
+
+If a Filter needs more than one sentence to explain,  
+it is not a Filter anymore.
+
+---
+
+## Filters Must Be Finite and Named
+
+A Teacher must define:
+- a **finite list** of Filters,
+- each with a **clear, human-readable name**.
+
+Bad names:
+- “Custom”
+- “Advanced stuff”
+- “Misc”
+- “Try this”
+
+Good names:
+- “Beginner (Top 500 words)”
+- “Lesson 1–5”
+- “Hanja — basic set”
+- “Irregular verbs”
+
+If you cannot name it clearly, do not expose it.
+
+---
+
+## Filters Must Be Stable Over Time
+
+Once published, a Filter should be **stable**.
+
+This means:
+- do not silently redefine its meaning,
+- do not change its selection logic retroactively.
+
+Why?
+
+Because:
+- Filters define Sessions,
+- Sessions define progress,
+- changing a Filter changes the past.
+
+Acceptable evolution:
+- adding new Cards that match the Filter,
+- fixing clear mistakes.
+
+Dangerous evolution:
+- redefining selection rules,
+- excluding Cards previously included.
+
+If the meaning changes, **create a new Filter**.
+
+---
+
+## Filters Are Not Difficulty Levels
+
+Difficulty is handled by:
+- the learning Engine,
+- repetition logic,
+- feedback timing.
+
+Filters are about **scope**, not difficulty.
+
+Avoid:
+- “Easy / Medium / Hard” without context,
+- numeric levels that mean nothing to Students.
+
+Prefer:
+- semantic groupings,
+- lesson-based filters,
+- conceptual boundaries.
+
+---
+
+## Filters and Views
+
+Filters select **what** is studied.  
+Views define **how** it is studied.
+
+They must remain independent.
+
+Good design:
+- same Filter, multiple Views,
+- same View, multiple Filters.
+
+Avoid:
+- encoding View logic inside Filters,
+- creating Filters that only exist for one View unless strictly necessary.
+
+Each *(View × Filter)* combination creates a **distinct Session**.  
+This is correct and expected.
+
+---
+
+## Filters and First Launch
+
+Filters play a crucial role in first impressions.
+
+The first screen a Student sees should present:
+- a **small number** of Filters,
+- intentionally chosen by the Teacher.
+
+A good rule of thumb:
+- 1 default Filter,
+- 2 or 3 optional Filters maximum.
+
+Too many Filters at first launch is overwhelming.
+
+---
+
+## Filters Must Be Lightly Documented
+
+A Teacher is encouraged to provide:
+- a short description for each Filter.
+
+This description should answer:
+- What does this Filter include?
+- Who is it for?
+
+Example:
+
+> **Beginner**  
+> The most frequent words, suitable for first-time learners.
+
+No technical explanation is required.
+
+---
+
+## Design Anti-Patterns (Avoid at All Costs)
+
+❌ Letting Students edit Filters  
+❌ Filters that change meaning silently  
+❌ Filters that encode multiple unrelated ideas  
+❌ Filters that depend on hidden technical fields  
+❌ Filters that require Teacher intervention to understand  
+
+If a Filter needs a manual, it is not a Filter anymore.
+
+---
+
+## Summary for Teachers
+
+- Filters are part of the learning UI.
+- Students choose Filters, but never define them.
+- Each Filter is a pedagogical promise.
+- Stability matters more than cleverness.
+- Simplicity is a feature, not a limitation.
+
+Design Filters as **doors**, not **puzzles**.
+
+# Teacher — Designing Filters Without Confusing Students
+
 Filters are a powerful tool.
 They allow a Teacher to focus learning on a subset of Cards.
 

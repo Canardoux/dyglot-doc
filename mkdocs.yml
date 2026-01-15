@@ -7,14 +7,17 @@ repo_name: canardoux/dyglot
 theme:
   name: material
   language: en
+  features:
+    - navigation.footer
+    - navigation.top
 
 nav:
   - Introduction: 
-      - Overview: index.md
-      - Architecture at a Glance: architecture-at-a-glance.md
-      - Vision: vision-architecture.md
-      - Glossary: glossary.md
-      - FAQ: faq.md
+      - Overview: introduction/index.md
+      - Architecture at a Glance: introduction/architecture-at-a-glance.md
+      - Vision: introduction/vision-architecture.md
+      - Glossary: introduction/glossary.md
+      - FAQ: introduction/faq.md
 
   - Student:
       - Overview: student/index.md
@@ -39,6 +42,7 @@ nav:
       - Content Model: teacher/content-model.md
       - Publishing: teacher/publishing.md
       - Views: teacher/view.md
+      - FAQ: teacher/faq.md
  
   - Engine:
       - Overview: engine/index.md
