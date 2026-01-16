@@ -192,3 +192,172 @@ This flexibility allows:
 - and turnkey learning apps,
 
 while keeping Students safe and the system maintainable.
+
+# Publishing & Distribution Models  
+## Classroom vs Branded App
+
+Dyglot deliberately separates **content creation** from **application distribution**.
+
+A teacher should be able to publish learning material **without** becoming an iOS or Android developer.  
+At the same time, Dyglot must not prevent advanced teams from creating fully branded applications when needed.
+
+For this reason, Dyglot supports **two official distribution models**.
+
+---
+
+## Model A — Publish a Classroom (Recommended)
+
+This is the **primary and recommended** way to distribute content in Dyglot.
+
+### What the teacher publishes
+
+A **Classroom bundle**, containing:
+
+- One or more **CardSets** (data)
+- One or more **Courses** (pedagogical structure)
+- **View specifications** (presentation logic)
+- **Filters** (student-facing selections)
+- Assets (audio, images, fonts)
+- A manifest describing compatibility and metadata
+
+The classroom is **pure content + pedagogy**.  
+It contains **no executable code**.
+
+### Where classrooms are hosted
+
+A classroom may be hosted:
+
+- Locally (bundled with an app)
+- On a private server controlled by the teacher
+- On a public server
+- On an official registrar
+- On a semi-private URL shared with students
+
+Dyglot does **not** require classrooms to be hosted by Canardoux.
+
+### How students access classrooms
+
+Students use the **Dyglot Student runtime**, which can:
+
+- Discover classrooms via registrars
+- Download classrooms
+- Open remote classrooms
+- Manage multiple classrooms at once
+
+From the student’s point of view:
+> “I install or open a course, then I practice.”
+
+No App Store account is required.
+
+### Advantages
+
+- No Apple / Google bureaucracy
+- Content and engine evolve independently
+- Updates are instant
+- One classroom → many platforms
+- Ideal for teachers and small teams
+
+### This is the default Dyglot model
+
+If a teacher does **nothing special**, this is the model they use.
+
+---
+
+## Model B — Publish a Branded App (Advanced)
+
+This model exists for teams who want:
+
+- Full branding
+- A dedicated App Store presence
+- A closed ecosystem
+
+### What changes
+
+A **branded application** embeds:
+
+- The Dyglot runtime
+- One or more classrooms
+- Branding (name, icon, store listing)
+- Optional restrictions (no discovery, no external classrooms)
+
+The result is a standalone app such as:
+
+- “Dyglot Korean”
+- “Medical Vocabulary Trainer”
+- “Japanese Grammar Companion”
+
+### Responsibilities shift
+
+In this model, the publisher becomes responsible for:
+
+- App Store / Play Store accounts
+- Certificates and signing
+- Store review process
+- Platform-specific compliance
+- Release cadence
+
+Dyglot **does not hide this complexity** — it documents it.
+
+### Advantages
+
+- Branding and marketing
+- One-click installation
+- Offline-first by default
+- Full control of user experience
+
+### Disadvantages
+
+- High operational cost
+- Slower updates
+- Tight coupling between engine and content
+
+---
+
+## Design Principle: One Engine, Multiple Paths
+
+Dyglot is designed so that:
+
+- **Classrooms** can exist without apps
+- **Apps** can exist without discovery
+- The **same classroom** can be:
+  - used in Dyglot Student,
+  - embedded in a branded app,
+  - reused across platforms.
+
+No architectural fork is required.
+
+---
+
+## Compatibility & Evolution
+
+Each classroom declares:
+
+- Its **specification version**
+- The **engine features** it requires
+- Optional compatibility modes (V1-like, Anki-like, custom)
+
+The Dyglot runtime guarantees:
+
+- Forward compatibility where possible
+- Clear errors where compatibility breaks
+
+---
+
+## Summary
+
+| Aspect | Classroom (A) | Branded App (B) |
+|------|---------------|----------------|
+| Recommended | ✅ Yes | ⚠️ Advanced |
+| App Store required | ❌ No | ✅ Yes |
+| Teacher-friendly | ✅ Very | ❌ Complex |
+| Branding | ❌ Limited | ✅ Full |
+| Maintenance | ✅ Simple | ❌ Heavy |
+
+---
+
+## Key Statement (Intentional)
+
+> Dyglot is designed so that **most teachers never need to publish an app**.  
+> Publishing a classroom is enough.
+
+Branded apps are **an option**, not the default path.

@@ -44,12 +44,15 @@ nav:
       - Views: teacher/view.md
       - Screen Design: teacher/screen.md
       - Live Preview: teacher/live-preview.md
+      - License: teacher/license.md
       - FAQ: teacher/faq.md
  
   - Engine:
       - Overview: engine/index.md
       - Studio: engine/studio.md
       - Live Preview: engine/preview.md
+      - View Rendering: engine/rendering.md
+      - License: engine/license.md
 
 markdown_extensions:
   - toc:

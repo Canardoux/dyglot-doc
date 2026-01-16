@@ -266,210 +266,7 @@ teachers never see it as such.
 
 ---
 
-### Views (Teacher-Defined)
 
-A **View** defines **what the student sees**.
-
-Examples:
-
-- Vocabulary view
-- Browse view
-- Quiz view
-- Listening-only view
-- Korean → English
-- English → Korean
-- Hanja-focused
-- Any domain-specific view
-
-
-
-A view is defined by the teacher.
-
-The student only selects among existing views.
-
-#### Question vs Answer
-
-In Dyglot v2, a view may define:
-
-- a **question layout**
-- a **response layout**
-
-These may be:
-- the same layout with fields revealed
-- or two entirely distinct layouts
-
-This avoids hardcoding the idea that “answer = unmasking fields”.
-
-
-A View defines how cards are presented.
-
-Views are defined by the teacher, not by the student.
-
-Each view defines:
-
-- what is shown on the question side
-- what is shown on the answer side
-- or how information is revealed progressively
-
-Important Decision
-
-In Dyglot v2:
-
-- Question and Answer may be two distinct layouts
-- Reveal-by-unmasking is optional, not imposed
-
-This avoids hard-coding assumptions and allows:
-
-- recto/verso models,
-- reveal-based models,
-- hybrid models.
-
-  Types de vues définies par le Teacher
-
-#### Practice View (Quiz / Training)
-
-La vue “classique” d’apprentissage.
-
-- Présente une question
-- Attend une réponse (mentale, tapée, ou juste révélée)
-- Gère une progression (session)
-- Peut être utilisée avec différents filtres
-
-⚠️ Point clé (important) :
-Cette vue peut être :
-
-- soit une vue unique avec des champs masqués / révélés,
-- soit deux vues distinctes :
-- Question View
-- Answer View
-
-👉 C’est un choix du Teacher, pas du moteur.
-
-⸻
-
-#### Browse View
-
-Vue de consultation libre.
-
-- Pas de notion de question / réponse
-- Pas de score
-- Pas de pression
-- Permet d’explorer les cartes comme un dictionnaire ou un catalogue
-
-Typiquement :
-
-- voir toutes les infos d’une carte
-- naviguer, filtrer, lire, écouter
-
-⸻
-
-#### Reverse Practice View
-
-Vue de pratique “inversée”.
-
-Exemples :
-
-- Anglais → Coréen
-- Définition → Terme
-- Son → Mot
-- Hanja → Hangul
-
-👉 Ce n’est pas un “mode magique”
-👉 C’est une vue différente, définie explicitement par le Teacher
-
-⸻
-
-#### Recognition View
-
-Vue de reconnaissance passive.
-
-- L’utilisateur voit / entend quelque chose
-- Il évalue lui-même s’il reconnaît ou non
-- Interaction minimale (✓ / ✗ / “je sais” / “je ne sais pas”)
-
-Très utile pour :
-
-- révisions rapides
-- transport
-- fatigue cognitive
-
-⸻
-
-#### Explained View
-
-Vue pédagogique.
-
-- La carte est présentée avec explication
-- Le Teacher décide quels champs sont visibles
-
-Peut inclure :
-
-- notes
-- commentaires
-- règles
-- exemples détaillés
-
-Souvent utilisée :
-
-- avant la pratique
-- après un échec
-- comme support de cours
-
-⸻
-
-#### Audio-First View
-
-Vue centrée sur le son.
-
-- Le son est le point d’entrée
-- Les autres champs peuvent être masqués au départ
-- Idéal pour prononciation, écoute, rythme
-
-⸻
-
-#### Hanja / Script-Focused View
-
-Vue spécialisée sur un système d’écriture ou une dimension précise.
-
-Exemples :
-
-- Hanja
-- Kana / Kanji
-- IPA
-- Solfège (notation musicale, rythme)
-
-👉 Encore une fois : vue définie par le Teacher, pas codée en dur.
-
----
-
-#### Free / Custom View
-
-Vue totalement libre.
-
-- Le Teacher assemble les champs
-- Décide de l’ordre
-- Décide de ce qui est visible ou conditionnel
-- Décide si la vue est “pratiquante” ou “consultative”
-
-C’est là que ton moteur devient généraliste.
-
----
-
-Ce que le Student voit (très important)
-
-Pour le Student, tout ça se résume à :
-
-- une liste de vues (boutons radio ou équivalent)
-- une liste de filtres prédéfinis
-- un gros bouton :
-- Practice
-- ou Browse
-
-👉 Aucune création
-👉 Aucune édition
-👉 Aucune complexité
-
----
 
 ### Filter (Teacher-Defined)
 
@@ -604,11 +401,30 @@ Dyglot v2:
 In Dyglot v2, what the learner sees is part of the curriculum.
 
 Therefore:
+
 - the teacher defines views,
 - the system enforces structure,
 - the student focuses on learning.
 
 **Design requirement:** Teachers must not need HTML, SQL, or programming.
+
+## Licensing at a glance
+
+Dyglot Engine and Dyglot Student are released under the GNU GPL license.
+
+Classrooms, CardSets, courses, and pedagogical content created with Dyglot
+are **not considered derivative works of the engine** and remain fully
+owned and licensed by their authors.
+
+Dyglot is designed to protect both:
+- the freedom of the engine,
+- and the freedom of pedagogical creators.
+
+- Dyglot Student is released under GPL.
+- Classrooms are data, not code.
+- Classrooms are not subject to GPL copyleft.
+- Teachers retain full control over the license of their classrooms.
+- Documentation templates are provided as helpers and do not impose licensing constraints.
 
 ## The documentation
 
@@ -636,7 +452,76 @@ This is the current part
 - data model capabilities
 - constraints and guarantees
 
+### Documentation License
 
+The dyglot documentation is published under the Creative Common CC-BY-NC-SA.
+If the teacher use the Diglot Template Documention for his/her own classoom, he/she must publish hi/her own documentation under the same license CC-BY-NC-SA.
+
+## Commercial Use and Classrooms
+
+Dyglot is an open and free learning engine, but it is **not intended to be a
+free backend for proprietary commercial applications**.
+
+### Selling a classroom
+
+Teachers may:
+- distribute classrooms freely,
+- share them publicly or privately,
+- request financial support, subscriptions, or access fees **outside of an app store**.
+
+This includes:
+- private access to a classroom,
+- paid educational content,
+- courses or teaching services using Dyglot as a client.
+
+### Commercial applications
+
+Embedding Dyglot Engine and classroom data inside a **paid mobile application**
+(iOS, Android, etc.) is **not permitted without explicit authorization** from
+the Dyglot project.
+
+This restriction exists to:
+- protect the integrity of the Dyglot ecosystem,
+- prevent free-riding on a community-driven engine,
+- and ensure fair contribution to the project.
+
+### The Dyglot Korean exception
+
+Applications published by the Dyglot authors (such as Dyglot Korean)
+are considered official distributions and are not subject to this restriction.
+
+## Commercial Use and Classrooms
+
+Dyglot is a free and open learning engine.
+However, it is **not intended to be used as a free backend for proprietary
+commercial applications**.
+
+### Selling a classroom
+
+Teachers may:
+- distribute classrooms freely,
+- share them publicly or privately,
+- request financial support, subscriptions, or access fees **outside of app stores**.
+
+This includes:
+- private or paid access to a classroom,
+- educational content,
+- teaching services using Dyglot as a client.
+
+Classroom data itself is not restricted to free distribution, but its use
+must respect the Dyglot ecosystem and licenses.
+
+### Commercial applications
+
+Embedding Dyglot Engine together with classroom data inside a **paid mobile
+application** (iOS, Android, etc.) is **not permitted without explicit authorization**.
+
+This restriction exists to:
+- protect the integrity of the Dyglot project,
+- prevent free-riding on a community-driven engine,
+- ensure that commercial benefits do not bypass community contribution.
+
+Dyglot is designed as a shared educational tool, not as a commercial SDK.
 ---
 
 ## Summary

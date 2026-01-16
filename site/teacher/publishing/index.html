@@ -1320,6 +1320,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../faq/" class="md-nav__link">
         
   
@@ -1466,6 +1494,62 @@
     
   
     Live Preview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engine/rendering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    View Rendering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../engine/license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
   
 
     
@@ -1820,6 +1904,175 @@ Students are only indirectly concerned.</p>
 - curated ecosystems,
 - and turnkey learning apps,</p>
 <p>while keeping Students safe and the system maintainable.</p>
+<h1 id="publishing-distribution-models">Publishing &amp; Distribution Models<a class="headerlink" href="#publishing-distribution-models" title="Permanent link">&para;</a></h1>
+<h2 id="classroom-vs-branded-app">Classroom vs Branded App<a class="headerlink" href="#classroom-vs-branded-app" title="Permanent link">&para;</a></h2>
+<p>Dyglot deliberately separates <strong>content creation</strong> from <strong>application distribution</strong>.</p>
+<p>A teacher should be able to publish learning material <strong>without</strong> becoming an iOS or Android developer.<br />
+At the same time, Dyglot must not prevent advanced teams from creating fully branded applications when needed.</p>
+<p>For this reason, Dyglot supports <strong>two official distribution models</strong>.</p>
+<hr />
+<h2 id="model-a-publish-a-classroom-recommended">Model A — Publish a Classroom (Recommended)<a class="headerlink" href="#model-a-publish-a-classroom-recommended" title="Permanent link">&para;</a></h2>
+<p>This is the <strong>primary and recommended</strong> way to distribute content in Dyglot.</p>
+<h3 id="what-the-teacher-publishes">What the teacher publishes<a class="headerlink" href="#what-the-teacher-publishes" title="Permanent link">&para;</a></h3>
+<p>A <strong>Classroom bundle</strong>, containing:</p>
+<ul>
+<li>One or more <strong>CardSets</strong> (data)</li>
+<li>One or more <strong>Courses</strong> (pedagogical structure)</li>
+<li><strong>View specifications</strong> (presentation logic)</li>
+<li><strong>Filters</strong> (student-facing selections)</li>
+<li>Assets (audio, images, fonts)</li>
+<li>A manifest describing compatibility and metadata</li>
+</ul>
+<p>The classroom is <strong>pure content + pedagogy</strong>.<br />
+It contains <strong>no executable code</strong>.</p>
+<h3 id="where-classrooms-are-hosted">Where classrooms are hosted<a class="headerlink" href="#where-classrooms-are-hosted" title="Permanent link">&para;</a></h3>
+<p>A classroom may be hosted:</p>
+<ul>
+<li>Locally (bundled with an app)</li>
+<li>On a private server controlled by the teacher</li>
+<li>On a public server</li>
+<li>On an official registrar</li>
+<li>On a semi-private URL shared with students</li>
+</ul>
+<p>Dyglot does <strong>not</strong> require classrooms to be hosted by Canardoux.</p>
+<h3 id="how-students-access-classrooms">How students access classrooms<a class="headerlink" href="#how-students-access-classrooms" title="Permanent link">&para;</a></h3>
+<p>Students use the <strong>Dyglot Student runtime</strong>, which can:</p>
+<ul>
+<li>Discover classrooms via registrars</li>
+<li>Download classrooms</li>
+<li>Open remote classrooms</li>
+<li>Manage multiple classrooms at once</li>
+</ul>
+<p>From the student’s point of view:</p>
+<blockquote>
+<p>“I install or open a course, then I practice.”</p>
+</blockquote>
+<p>No App Store account is required.</p>
+<h3 id="advantages">Advantages<a class="headerlink" href="#advantages" title="Permanent link">&para;</a></h3>
+<ul>
+<li>No Apple / Google bureaucracy</li>
+<li>Content and engine evolve independently</li>
+<li>Updates are instant</li>
+<li>One classroom → many platforms</li>
+<li>Ideal for teachers and small teams</li>
+</ul>
+<h3 id="this-is-the-default-dyglot-model">This is the default Dyglot model<a class="headerlink" href="#this-is-the-default-dyglot-model" title="Permanent link">&para;</a></h3>
+<p>If a teacher does <strong>nothing special</strong>, this is the model they use.</p>
+<hr />
+<h2 id="model-b-publish-a-branded-app-advanced">Model B — Publish a Branded App (Advanced)<a class="headerlink" href="#model-b-publish-a-branded-app-advanced" title="Permanent link">&para;</a></h2>
+<p>This model exists for teams who want:</p>
+<ul>
+<li>Full branding</li>
+<li>A dedicated App Store presence</li>
+<li>A closed ecosystem</li>
+</ul>
+<h3 id="what-changes">What changes<a class="headerlink" href="#what-changes" title="Permanent link">&para;</a></h3>
+<p>A <strong>branded application</strong> embeds:</p>
+<ul>
+<li>The Dyglot runtime</li>
+<li>One or more classrooms</li>
+<li>Branding (name, icon, store listing)</li>
+<li>Optional restrictions (no discovery, no external classrooms)</li>
+</ul>
+<p>The result is a standalone app such as:</p>
+<ul>
+<li>“Dyglot Korean”</li>
+<li>“Medical Vocabulary Trainer”</li>
+<li>“Japanese Grammar Companion”</li>
+</ul>
+<h3 id="responsibilities-shift">Responsibilities shift<a class="headerlink" href="#responsibilities-shift" title="Permanent link">&para;</a></h3>
+<p>In this model, the publisher becomes responsible for:</p>
+<ul>
+<li>App Store / Play Store accounts</li>
+<li>Certificates and signing</li>
+<li>Store review process</li>
+<li>Platform-specific compliance</li>
+<li>Release cadence</li>
+</ul>
+<p>Dyglot <strong>does not hide this complexity</strong> — it documents it.</p>
+<h3 id="advantages_1">Advantages<a class="headerlink" href="#advantages_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Branding and marketing</li>
+<li>One-click installation</li>
+<li>Offline-first by default</li>
+<li>Full control of user experience</li>
+</ul>
+<h3 id="disadvantages">Disadvantages<a class="headerlink" href="#disadvantages" title="Permanent link">&para;</a></h3>
+<ul>
+<li>High operational cost</li>
+<li>Slower updates</li>
+<li>Tight coupling between engine and content</li>
+</ul>
+<hr />
+<h2 id="design-principle-one-engine-multiple-paths">Design Principle: One Engine, Multiple Paths<a class="headerlink" href="#design-principle-one-engine-multiple-paths" title="Permanent link">&para;</a></h2>
+<p>Dyglot is designed so that:</p>
+<ul>
+<li><strong>Classrooms</strong> can exist without apps</li>
+<li><strong>Apps</strong> can exist without discovery</li>
+<li>The <strong>same classroom</strong> can be:</li>
+<li>used in Dyglot Student,</li>
+<li>embedded in a branded app,</li>
+<li>reused across platforms.</li>
+</ul>
+<p>No architectural fork is required.</p>
+<hr />
+<h2 id="compatibility-evolution">Compatibility &amp; Evolution<a class="headerlink" href="#compatibility-evolution" title="Permanent link">&para;</a></h2>
+<p>Each classroom declares:</p>
+<ul>
+<li>Its <strong>specification version</strong></li>
+<li>The <strong>engine features</strong> it requires</li>
+<li>Optional compatibility modes (V1-like, Anki-like, custom)</li>
+</ul>
+<p>The Dyglot runtime guarantees:</p>
+<ul>
+<li>Forward compatibility where possible</li>
+<li>Clear errors where compatibility breaks</li>
+</ul>
+<hr />
+<h2 id="summary_1">Summary<a class="headerlink" href="#summary_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Classroom (A)</th>
+<th>Branded App (B)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recommended</td>
+<td>✅ Yes</td>
+<td>⚠️ Advanced</td>
+</tr>
+<tr>
+<td>App Store required</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Teacher-friendly</td>
+<td>✅ Very</td>
+<td>❌ Complex</td>
+</tr>
+<tr>
+<td>Branding</td>
+<td>❌ Limited</td>
+<td>✅ Full</td>
+</tr>
+<tr>
+<td>Maintenance</td>
+<td>✅ Simple</td>
+<td>❌ Heavy</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="key-statement-intentional">Key Statement (Intentional)<a class="headerlink" href="#key-statement-intentional" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Dyglot is designed so that <strong>most teachers never need to publish an app</strong>.<br />
+Publishing a classroom is enough.</p>
+</blockquote>
+<p>Branded apps are <strong>an option</strong>, not the default path.</p>
 
 
 

@@ -1,134 +1,171 @@
-# Dyglot — Vision & Architecture
+# Vision & Architecture
 
-## Vision
+This page explains **why Dyglot is designed the way it is**.
 
-Dyglot est avant tout un **outil d’apprentissage fondé sur un moteur**, et non sur une accumulation de fonctionnalités visibles.
-
-Ce moteur a un objectif simple :
-> présenter la bonne carte, au bon moment, à l’utilisateur.
-
-Dyglot n’est :
-- ni une base de données,
-- ni un lecteur audio,
-- ni un coach pédagogique autoritaire.
-
-Il peut **s’appuyer** sur ces éléments, mais ils ne constituent pas son cœur.
-
-Le projet est né d’un rejet de solutions existantes jugées trop complexes ou trop configurables, en particulier Anki, où l’utilisateur doit prendre trop de décisions qu’il ne maîtrise pas réellement.
+It is not a technical specification, and it is not a user guide.
+It is a **conceptual foundation** meant to clarify long-term choices,
+avoid accidental complexity, and make the project understandable to
+future teachers, contributors, and system developers.
 
 ---
 
-## Principes fondateurs
+## Dyglot Is Not a Flashcard App
 
-### 1. Simplicité côté utilisateur
-L’utilisateur ne doit pas :
-- comprendre l’algorithme,
-- régler des paramètres abstraits,
-- faire des choix techniques.
+Dyglot is often compared to tools like Anki.
+This comparison is understandable — but misleading.
 
-Il doit seulement répondre honnêtement à une question simple :
-> « Est-ce que j’ai compris cette carte ? »
+Dyglot is **not**:
+- a predefined flashcard application,
+- a fixed learning workflow,
+- a single pedagogy embedded in code.
 
-### 2. Le moteur avant l’interface
-Dyglot est conçu comme un **moteur de sélection de cartes** :
-- indépendant du support (web, desktop, mobile),
-- indépendant du stockage,
-- indépendant du réseau.
+Dyglot is a **learning engine** that allows teachers to define:
+- what a card contains,
+- how it is presented,
+- how learning progresses over time.
 
-L’interface n’est qu’une **projection** du moteur.
-
-### 3. Pas d’“usine à gaz”
-Même si Dyglot peut évoluer :
-- plusieurs “classrooms”,
-- plusieurs langues,
-- plusieurs stratégies pédagogiques,
-
-il est essentiel de **résister à la tentation de tout généraliser trop tôt**.
-
-Chaque complexité doit être justifiée par un usage réel.
+Pedagogy is **externalized**.  
+The engine does not decide how people should learn.
 
 ---
 
-## Architecture générale
+## Separation of Concerns Is a Design Requirement
 
-Dyglot est conçu comme un système **multi-cibles**, mais avec un cœur commun.
+Dyglot is built on a strict separation between three responsibilities:
 
-### Couches principales
-┌─────────────────────────┐
-│        UI / Frontend    │  (Svelte / SvelteKit)
-├─────────────────────────┤
-│   Application Logic     │
-├─────────────────────────┤
-│     Dyglot Engine       │  ← cœur du projet
-├─────────────────────────┤
-│   Storage Abstraction   │  (SQLite / IndexedDB / Server)
-└─────────────────────────┘
-### Le moteur Dyglot
-Le moteur :
-- décide **quelle carte proposer**,
-- maintient l’état des cartes (stacks, répétitions, délais),
-- est **déterministe et testable**.
+- **System Engine**  
+  The generic, reusable learning engine.
 
-Il ne sait rien :
-- de l’UI,
-- du réseau,
-- du support d’exécution.
+- **Teacher**  
+  The designer of content, structure, views, and learning logic.
+
+- **Student**  
+  The learner who interacts with what the teacher designed.
+
+This separation is **not negotiable**.
+It is the only way to:
+- avoid hard-coded pedagogies,
+- support very different learning domains,
+- allow long-term evolution without breaking existing classrooms.
 
 ---
 
-## Cibles de déploiement
+## Data Is Not Pedagogy
 
-Dyglot est pensé pour fonctionner dans plusieurs environnements :
+A core principle of Dyglot is the separation between:
 
-- **Web** (PWA, SSR ou SPA)
-- **Desktop** (Electron)
-- **Mobile** (Capacitor / iOS / Android)
+- **Data** (CardSets)
+- **Pedagogy** (Courses, Views, Filters, Sessions)
 
-L’objectif est de **réutiliser exactement le même moteur**, avec le minimum de code spécifique par plateforme.
+Cards contain **information**.
+Courses define **how that information is used to teach**.
 
----
-
-## Stockage des données
-
-Dyglot utilise principalement :
-- **SQLite** (desktop, mobile),
-- ou un stockage local équivalent (IndexedDB).
-
-Le stockage distant (serveur) n’est **pas une obligation** :
-- Dyglot peut fonctionner 100 % offline,
-- la synchronisation est un sujet séparé.
+This allows:
+- one CardSet to be reused in multiple Courses,
+- multiple learning paths for different audiences,
+- updates to pedagogy without duplicating data.
 
 ---
 
-## État du projet
+## Teachers Do Not Need to Be Programmers
 
-Dyglot est actuellement :
-- en phase d’architecture,
-- en exploration technique,
-- volontairement non figé.
+Dyglot Teacher is designed for teachers who do not know —  
+and do not want to know — HTML, SQL, or programming concepts.
 
-La priorité n’est pas la complétude fonctionnelle,
-mais la **solidité conceptuelle**.
+This is **not a limitation**.  
+It is a **design requirement**.
+
+Teachers should think in terms of:
+- content,
+- structure,
+- views,
+- learning progression,
+
+not in terms of:
+- databases,
+- schemas,
+- rendering engines,
+- technical constraints.
 
 ---
 
-## Positionnement open source
+## Views Are Defined by Teachers, Not by the Engine
 
-Dyglot est distribué sous licence **GPL v3**.
+In Dyglot, a *view* defines:
+- what the student sees,
+- which fields are visible,
+- how question and answer are revealed.
 
-Le projet privilégie :
-- la lisibilité du code,
-- la pérennité,
-- la liberté de modification pour l’utilisateur.
+The engine does **not** impose:
+- a fixed question/answer model,
+- a specific UI layout,
+- a single interaction pattern.
+
+Instead:
+- the teacher defines the view,
+- the engine executes it.
 
 ---
 
-## À venir
+## Engines Are Pluggable
 
-Cette documentation sera enrichie progressivement :
-- description détaillée du moteur,
-- format des cartes,
-- stratégie de répétition,
-- choix techniques par plateforme.
+Different learning logics exist:
+- Dyglot v1–style spaced repetition,
+- Anki-like models,
+- custom or domain-specific engines.
 
-Elle est volontairement **écrite au fil du projet**, et non a posteriori.
+Dyglot treats these as **engines**, not as UI decisions.
+
+This allows:
+- the same view to use different engines,
+- experimentation without rewriting the app,
+- future extensions without breaking compatibility.
+
+---
+
+## A Generic App, Domain-Specific Learning
+
+Dyglot is designed to support two distribution models:
+
+1. **Generic Dyglot App**
+   - loads classrooms dynamically,
+   - allows teachers to publish content independently,
+   - avoids App Store / Play Store complexity.
+
+2. **Domain-Specific Apps**
+   - engine + classroom bundled together,
+   - optimized user experience,
+   - heavier distribution and maintenance cost.
+
+Both models are valid.
+Dyglot does not force one over the other.
+
+---
+
+## Why This Architecture Matters
+
+This architecture exists to prevent:
+- gigantic, unmaintainable classrooms,
+- hard-coded learning modes,
+- UI logic leaking into data,
+- students being exposed to unnecessary complexity.
+
+It exists to allow:
+- reuse instead of duplication,
+- teacher freedom without student confusion,
+- long-term evolution of the system.
+
+---
+
+## In Short
+
+Dyglot is:
+
+- engine-first,
+- teacher-driven,
+- student-focused,
+- pedagogy-aware,
+- domain-agnostic.
+
+This page defines the **spirit** of the system.
+The rest of the documentation explains how each actor works within it.
